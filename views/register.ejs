@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap css link -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="../product/css/style.css"> -->
+
+    <title>Aliter Business Solution Login</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        input {
+            border: 1px solid black;
+            padding: 5px 10px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            text-align: center;
+            border: 1px solid black;
+            border-radius: 20px;
+            background-color: rgb(194, 235, 235);
+            padding: 20px;
+            margin-top: 30px;
+            width: 80%;
+        }
+
+        .register-item {
+            padding: 10px;
+            margin: 10px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .submitbtn {
+            color: white;
+            background-color: black;
+            font-size: 20px;
+            padding: 10px 30px;
+            margin: 10px;
+            border: none;
+            border-radius: 20px;
+        }
+
+        .sec1,
+        .sec2,
+        .sec3 {
+            display: flex;
+        }
+
+        .submitdiv {
+            text-align: center;
+        }
+
+        span {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <%- include ("common/nav") %>
+
+        <div class="container">
+
+            <form action="/register" method="post" name="register" id="register" onsubmit=" return valids()">
+                <caption>
+                    <h1 class="regHead"> :: Registration :: </h1>
+                </caption>
+
+                <div class="form">
+
+                    <div class="sec1">
+                        <div class="register-item">
+                            <label for="fname">First Name : </label>
+                            <input type="text" name="fname" id="fname" class="fnameInput">
+                            <span id="fnameError" class="fnameError"></span>
+                        </div>
+                        <div class="register-item">
+                            <label for="mname">Middle Name : </label>
+                            <input type="text" name="mname" id="mname" class="mnameInput">
+                            <span id="mnameError"></span>
+                        </div>
+                        <div class="register-item">
+                            <label for="lname">Last Name : </label>
+                            <input type="text" name="lname" id="lname" class="lnameInput">
+                            <div id="lnameError"></div>
+                        </div>
+                    </div>
+
+                    <div class="sec2">
+                        <div class="register-item">
+                            <label for="TelNumber">Mobile : </label>
+                            <input type="tel" name="TelNumber" id="TelNumber" class="mobileNumber">
+                            <span id="TelError"></span>
+                        </div>
+                        <div class="register-item">
+                            <label for="city">City : </label>
+                            <input type="text" name="city" id="city" class="cityname">
+                            <span id="cityError"></span>
+                        </div>
+                        <div class="register-item">
+                            <label for="district">District : </label>
+                            <input type="text" name="district" id="district" class="districtName">
+                            <span id="districtError"></span>
+                        </div>
+                    </div>
+
+                    <div class="sec3">
+                        <div class="register-item">
+                            <label for="state">State : </label>
+                            <input type="text" name="state" id="state" class="stateName">
+                            <span id="stateError"></span>
+                        </div>
+                        <div class="register-item">
+                            <label for="County">County : </label>
+                            <input type="text" name="County" id="County" class="CountyName">
+                            <span id="CountyError"></span>
+                        </div>
+                        <div class="register-item">
+                            <label for="Pincode">Pincode : </label>
+                            <input type="text" name="Pincode" id="Pincode" class="PincodeName">
+                            <span id="PinError"></span>
+                        </div>
+                    </div>
+
+                    <div class="register-item">
+                        <label for="password">Password : </label>
+                        <input type="text" name="password" id="password" class="newpassword">
+                        <span id="passwordError"></span>
+                    </div>
+
+                </div>
+                <div class="register-item submitdiv">
+                    <button type="submit" name="btnsubmit" id="btnsubmit" class="submitbtn"
+                        value="submit">Register</button>
+                </div>
+            </form>
+
+            <!-- bootstrap script link -->
+
+            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+                integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+                crossorigin="anonymous"></script>
+            <!-- <script src="/value.js"></script> -->
+            <script>
+                // let fname = document.getElementById("fname").value
+
+
+                let valids = () => {
+                    let fname = document.forms["register"]["fname"].value
+                    let mname = document.forms["register"]["mname"].value
+                    let lname = document.forms["register"]["lname"].value
+                    let TelNumber = document.forms["register"]["TelNumber"].value
+                    let city = document.forms["register"]["fname"].value
+                    let district = document.forms["register"]["district"].value
+                    let state = document.forms["register"]["state"].value
+                    let County = document.forms["register"]["County"].value
+                    let Pincode = document.forms["register"]["Pincode"].value
+                    let password = document.forms["register"]["password"].value
+
+
+                    var regexAbcd = /^[A-Za-z]+$/
+                    var regex123 = /^[0-9]+$/
+
+
+                    if (!fname || !regexAbcd.test(fname)) {
+                        document.getElementById("fnameError").innerHTML = " please enter name"
+                        return false
+                    }
+                    // else if (!mname) {
+                    //     document.getElementById("mnameError").innerHTML = "<p> please enter middel name</p>"
+                    //     return false
+                    // }
+                    // else if (mname != regex) {
+                    //     document.getElementById("mnameError").innerHTML = "<p> Enter Valid middle Name</p>"
+                    //     return false
+                    // }
+                    // else if (!lname) {
+                    //     document.getElementById("lnameError").innerHTML = "<p> please enter last name</p>"
+                    //     return false
+                    // }
+                    // else if (lname != regex) {
+                    //     document.getElementById("lnameError").innerHTML = "<p> Enter Valid last name</p>"
+                    //     return false
+                    // }
+                    else if (!TelNumber || TelNumber.length < 10 || TelNumber.length > 10 || !regex123.test(TelNumber)) {
+                        document.getElementById("TelError").innerHTML = "<p> please enter valid mobile number</p>"
+                        return false
+                    }
+                }
+            </script>
+        </div>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+h1{
+    text-align: center;
+    color: white;
+}
+input {
+    border: 0px ;
+}
